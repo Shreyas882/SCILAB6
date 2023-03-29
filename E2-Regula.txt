@@ -1,0 +1,25 @@
+clc;
+clear;
+function y=f(x)
+    y=x^3-9*x+1;
+endfunction
+
+a=input("Enter Lower Limit: ")
+b=input("Enter Upper Limit: ")
+if f(a)*f(b)<0 then
+    for i=1 : 5000
+        c=(a*f(b)-b*f(a))/(f(b)-f(a));
+        if abs(f(c))<0.000000001 then
+        mprintf("The required root of the function is: %f\n",c)
+        mprintf("Number of iteration to converge is %d",i);
+        break;
+    else
+        if (f(a)*f(c)) < 0 then
+            b=c
+        else
+            a=c;
+        end
+        
+        end
+    end
+end
