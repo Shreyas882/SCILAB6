@@ -1,0 +1,22 @@
+clc;
+clear;
+function [y]=f(x)
+    y=x^3-2*x-5;
+endfunction
+
+function y=df(x)
+    y=3*x^2-x;
+endfunction
+
+x0=input("Enter the initial condition: ");
+for i=1 : 10
+    xn=x0 -(f(x0)/df(x0));
+    if (abs(f(xn))) <= 0.00001 then
+        mprintf("Root is ");
+        disp(xn);
+        disp(i);
+        abort;
+    else
+        x0=xn;
+    end
+end
