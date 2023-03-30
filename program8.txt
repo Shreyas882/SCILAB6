@@ -1,0 +1,17 @@
+kill(all)$
+v1:[1,-3,2]$
+v2:[2,-1,1]$
+w:[1,7,-4]$
+n:length(v1)$
+print("To find c1,c2 such that",c1,"*",transpose(v1),"+",
+c2,"*",transpose(v2),"=",transpose(w))$
+for i:1 thru n do(
+expr[i]:v1[i]*c1+v2[i]*c2)$
+soln:solve([expr[1]=w[1],expr[2]=w[2],expr[3]=w[3]],[c1,c2]);
+c1:ev(c1,soln)$
+c2:ev(c2,soln)$
+W:c1*v1+c2*v2$
+if w=W then
+print("The linear combination of vector",w,"=",c1,v1,"+",c2,v2)
+else
+print("v is not a linear combination of v1,v2")$

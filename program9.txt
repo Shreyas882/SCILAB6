@@ -1,0 +1,16 @@
+kill(all)$
+v1:[1,1,2]$
+v2:[-3,1,0]$
+v3:[1,-1,1]$
+v4:[1,2,-3]$
+for i:1 thru 3 do(
+expr[i]:c1*v1[i] +c2*v2[i] +c3*v3[i]+c4*v4[i] )$
+soln:solve([expr[1]=0,expr[2]=0,expr[3]=0],[c1,c2,c3,c4]);
+c1:ev(c1,soln)$
+c2:ev(c2,soln)$
+c3:ev(c3,soln)$
+c4:ev(c4,soln)$
+if c1=0 and c2=0 and c3=0 and c4=0 then(
+print("The vectors are linearly independent"))
+else (
+print("The vectors are linearly dependent"))$
