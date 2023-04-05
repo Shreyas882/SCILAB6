@@ -1,0 +1,32 @@
+clc;
+clear;
+funcprot(0);
+n=3;
+A=input("Enter the coefficient matrix: ")
+B=input("Enter the constant matrix as column matrix: ")
+xold=[0;0;0]
+x=xold;
+for itr=1:50
+    mprintf("Iteration number %d \n",itr);
+    for i=1:n
+        sum=0;
+        for j=1:n
+            if i<>j then
+                sum=sum + A(i,j) * xold(j);
+        e
+    end
+    x(i)=(B(i)-sum)/A(i,i);
+    mprintf("x[%i]=%.4f\n",i,x(i));
+end
+if abs(max(x-xold))<=0.0001  then
+    mprintf('the required solution is \n');
+    mprintf("%.4f \n",x);
+    mprintf('the number of iterations taken is %d\n',itr);
+    break;
+else
+    xold=x;
+    
+   end
+end
+
+
