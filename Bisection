@@ -1,0 +1,24 @@
+clc; 
+clear;
+function y=f(x)
+y = x^3-9*x+1;
+endfunction
+a=input ("Enter the lover limit of the interval:") b=input ("Enter the upper limit of the interval:");
+if f(a) *f (b)<0 then
+for i = 1: 5000
+c = (a+b) /2;
+if abs (f(c)) <= 0.00000001 then
+mprintf ("The required root of the function is: %f\n “,c);
+mprintf ("Number of required iterations is %d,i", 
+break;
+else
+if f(a) *f (c) < 0 then
+b = c;
+else 
+a= c;
+end 
+end
+end 
+else
+disp("Enter different interval in which the root lies.")
+end
