@@ -1,0 +1,27 @@
+clc;
+clear;
+funcprot(0);
+n = 3;
+A=input("Enter the coefficient matrix: ")
+B=input("Enter the constant matrix as column matrix: ")
+xold = [0; 0; 0];
+x = xold;
+for itr = 1 : 500
+for i = 1 : n
+sum = 0;
+for j = 1 : n
+if i <> j then
+sum = sum + A(i,j) * x(j);
+end
+end
+x(i) = (B(i) - sum)/A(i,i);
+end
+if abs (max(x - xold)) <= 0.00001 then
+mprintf(’The required solution is ’);
+disp(x);
+mprintf(’The number of iterations taken is %d \n  ’,i);
+break;
+else
+xold = x;
+end 
+end
