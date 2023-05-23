@@ -1,0 +1,25 @@
+clc;
+clear;
+mprintf("Scilab Program for Lagrange Interpolation\n");
+x=input("Enter the values of x as row vector:")
+y=input("Enter the corresponding values of y as row vector:")
+x1=input("Enter the value of x to which corresponding value of y to be found:")
+nx=length(x);
+ny=length(y);
+sum1=0;
+if nx<>ny then
+   mprintf("No. of elements of x and y must be same");
+abort; 
+end
+for k=1:nx
+   p(k)=1;
+   for i=1:nx
+     if i~=k then
+       p(k)=p(k)*(x1-x(i))/(x(k)-x(i));
+     end
+end 
+end
+for i=1:nx
+   sum1=sum1+p(i)*y(i);
+end
+mprintf("Value of y at x=%f is %f",x1,sum1);
