@@ -1,0 +1,22 @@
+clc;
+clear;
+funcprot(0);
+A=input("Enter the square matrix: ")
+//A = [-15 4 3; 10 -12 6; 20 -4 2];
+X = [1; 0; 0];
+small = 0;
+for
+i=1:400
+X1 = A*X
+big = max(X1);
+lambda = max(X1)
+X1 = X1/lambda;
+if abs(big - small ) <= 0.00001 then
+    mprintf("The required eigenvectors are ");
+    disp(X1);
+    mprintf("The required eigevnvalue is %f", lambda);
+break; else
+X = X1;
+    small = big;
+end
+end
