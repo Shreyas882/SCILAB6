@@ -1,0 +1,19 @@
+clc; 
+clear;
+function z=f(x)
+z=1/(1+x^2)
+endfunction
+x0=input("enter lower limit x0 : ");
+xn=input("enter upper limit xn : ");
+n=input("enter the number of intervals which is multiple of 3:");
+h=(xn-x0)/n;
+sum1=f(x0)+f(xn);
+for i=1:n-1
+if modulo(i,3)==0 then
+sum1=sum1+2*f(x0+i*h);
+else
+sum1=sum1+3*f(x0+i*h);
+end 
+end
+area=sum1*h*3/8;
+mprintf("Integral Value= %f",area);
