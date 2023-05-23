@@ -1,0 +1,23 @@
+clc;
+clear;
+mprintf("Scilab program for Runge-Kutta method of 4th order\n.. for finding the numerical solution of first order \n.. ODE in the given interval.\n")
+function [z]=f(x, y)
+z=2*x    //x=1, y=1, h=0.1, xf=1.2
+endfunction
+x=input("Enter initial value of x:")
+y=input("Enter initial value of y:")
+h=input("Enter width of x, h:")
+xf=input("Enter final value of x:")
+n=(xf-x)/h;
+mprintf("y for %f is %f \n",x,y)
+for i=1:n
+k1=(h*f(x,y))
+k2=(h*f(x+h/2,y+k1/2))
+k3=(h*f(x+h/2,y+k2/2))
+k4=(h*f(x+h,y+k3))
+k=(k1+2*k2+2*k3+k4)/6
+yn=(y+k)
+x=x+h
+mprintf("y for %f is %f \n",x,yn)
+y=yn
+end
